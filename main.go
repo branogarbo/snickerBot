@@ -53,7 +53,7 @@ func messageCreate(s *discordgo.Session, m *discordgo.MessageCreate) {
 		err     error
 	)
 
-	if m.Author.ID == s.State.User.ID || len(m.Content) < 2 {
+	if m.Author.ID == s.State.User.ID || len(m.Content) < 2 || m.Content[2:3] != " " {
 		return
 	}
 
