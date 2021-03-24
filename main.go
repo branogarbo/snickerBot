@@ -34,11 +34,11 @@ func main() {
 
 	err = dg.Open()
 	if err != nil {
-		fmt.Println("error opening connection,", err)
+		fmt.Println("error opening connection:", err)
 		return
 	}
 
-	fmt.Println("Bot is now running.  Press CTRL-C to exit.")
+	fmt.Println("Bot is now running. Press CTRL-C to exit.")
 	sc := make(chan os.Signal, 1)
 	signal.Notify(sc, syscall.SIGINT, syscall.SIGTERM, os.Interrupt, os.Kill)
 	<-sc
@@ -71,7 +71,7 @@ func messageCreate(s *discordgo.Session, m *discordgo.MessageCreate) {
 		}
 
 		if err != nil {
-			fmt.Println("failed to send message", err)
+			fmt.Println("failed to send message:", err)
 		}
 
 	}
