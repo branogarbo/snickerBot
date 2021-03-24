@@ -53,15 +53,15 @@ func messageCreate(s *discordgo.Session, m *discordgo.MessageCreate) {
 		err     error
 	)
 
-	if m.Author.ID == s.State.User.ID || len(m.Content) < 2 || m.Content[2:3] != " " {
+	if m.Author.ID == s.State.User.ID || len(m.Content) < 3 {
 		return
 	}
 
 	// using janky command code for now
 
-	msgHead = m.Content[:2]
+	msgHead = m.Content[:3]
 
-	if msgHead == "!n" {
+	if msgHead == "!n " {
 		if m.Content == msgHead {
 			err = errors.New("arg not provided")
 		} else {
