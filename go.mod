@@ -1,4 +1,4 @@
-module snicker
+module snickerBot
 
 go 1.16
 
